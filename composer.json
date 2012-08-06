@@ -1,10 +1,10 @@
 {
-    "name": "piliplabs/photolabs",
+    "name": "piliplabs/photolab",
     "type": "library",
     "description": "A PHP 5.3 photo gallery",
     "keywords": [],
     "homepage":
-    "https://github.com/pilipLabs/photoLabs",
+    "https://github.com/pilipLabs/photoLab",
     "license": "Apache 2.0",
     "minimum-stability": "dev",
     "authors": [
