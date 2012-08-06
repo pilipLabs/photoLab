@@ -1,0 +1,127 @@
+{
+    "hash": "9147a40087650f4bb40999f84039f950",
+    "packages": [
+        {
+            "package": "grom/silex-service-provider",
+            "version": "dev-master",
+            "source-reference": "1d37fa54aaecfacb68fde4c60392da0c1ca6300d",
+            "commit-date": "1338686843"
+        },
+        {
+            "package": "imagine/Imagine",
+            "version": "dev-master",
+            "source-reference": "v0.3.0",
+            "commit-date": "1343522118"
+        },
+        {
+            "package": "knplabs/knp-snappy",
+            "version": "dev-master",
+            "source-reference": "2b85a66539a58ce7fe639a5a417ce48d80ac1dd7",
+            "commit-date": "1342770243"
+        },
+        {
+            "package": "leafo/lessphp",
+            "version": "dev-master",
+            "source-reference": "v0.3.6",
+            "commit-date": "1344266507"
+        },
+        {
+            "package": "pimple/pimple",
+            "version": "dev-master",
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "pimple/pimple",
+            "version": "dev-master",
+            "source-reference": "db836b8cfadc0f39dacafa2bf311a1ab603600bb",
+            "commit-date": "1343051648"
+        },
+        {
+            "package": "silex/silex",
+            "version": "dev-master",
+            "source-reference": "ee00393c33b3de861082602747a84d49897b9315",
+            "commit-date": "1344077943"
+        },
+        {
+            "package": "symfony/event-dispatcher",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/event-dispatcher",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1342739894"
+        },
+        {
+            "package": "symfony/http-foundation",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-foundation",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1344071918"
+        },
+        {
+            "package": "symfony/http-kernel",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-kernel",
+            "version": "dev-master",
+            "source-reference": "0d0ee371ab0425f3399dba9e25d7ad98ca5c0d62",
+            "commit-date": "1344074675"
+        },
+        {
+            "package": "symfony/routing",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/routing",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1343744077"
+        },
+        {
+            "package": "symfony/twig-bridge",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/twig-bridge",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1343236543"
+        },
+        {
+            "package": "twig/twig",
+            "version": "dev-master",
+            "alias-pretty-version": "1.9.x-dev",
+            "alias-version": "1.9.9999999.9999999-dev"
+        },
+        {
+            "package": "twig/twig",
+            "version": "dev-master",
+            "source-reference": "51c866f415bbee670cd9ba13591307bce8dabdca",
+            "commit-date": "1343464333"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": [
+
+    ]
+}

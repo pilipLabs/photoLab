@@ -1,0 +1,30 @@
+{
+    "name": "piliplabs/photolabs",
+    "type": "library",
+    "description": "A PHP 5.3 photo gallery",
+    "keywords": [],
+    "homepage":
+    "https://github.com/pilipLabs/photoLabs",
+    "license": "Apache 2.0",
+    "minimum-stability": "dev",
+    "authors": [
+    {
+        "name": "pilip Labs",
+        "email": "labs@pilip.net",
+        "homepage": "http://labs.pilip.net/"
+    }
+    ],
+    "autoload":
+    {
+       "psr-0": {
+           "photo_lab":  "src"
+       }
+    },
+    "require": {
+        "silex/silex": "*",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "symfony/twig-bridge": "2.1.*",
+        "grom/silex-service-provider": "*",
+        "leafo/lessphp": "*"
+    }
+}
