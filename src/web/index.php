@@ -5,6 +5,7 @@ define('WEB_ROOT',  realpath(__DIR__));
 define('VIEWS_DIR', realpath(WEB_ROOT . '/../views'));
 define('CACHE_DIR', realpath(WEB_ROOT . '/../cache'));
 define('IMAGES_DIR',realpath(WEB_ROOT . '/images'));
+define('VENDOR_DIR',realpath(WEB_ROOT . '/../../vendor'));
 
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -20,7 +21,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new SilexExtension\AsseticExtension(), array(
     'assetic.path_to_web' => WEB_ROOT,
     'assetic.options' => array(
-        'debug' => $app['debug'],
+        'debug' => false,
+        'formulae_cache_dir' => CACHE_DIR . '/assetic',
+        'auto_dump_assets' => true,
     ),
     'assetic.filters' => $app->protect(
         function($fm) {
