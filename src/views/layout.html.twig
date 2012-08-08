@@ -10,8 +10,15 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link href="/less/bootstrap/bootstrap.less" rel="stylesheet">
-        <link href="/less/bootstrap/responsive.less" rel="stylesheet">
+        {% stylesheets
+            '../../vendor/twitter/bootstrap/less/bootstrap.less'
+            '../../vendor/twitter/bootstrap/less/responsive.less'
+            filter='less,css_rewrite'
+            combine=true
+            output='css/screen.css'
+        %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+        {% endstylesheets %}
     </head>
 
     <body>
@@ -54,6 +61,10 @@
         </div>
 
         {% block body %}{{ content }}{% endblock %}
+
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span><input class="span2" id="inputIcon" type="text">
+        </div>
 
         <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>

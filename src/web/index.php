@@ -1,16 +1,36 @@
 <?php
 require_once __DIR__.'/../../vendor/autoload.php';
 
+define('WEB_ROOT',  realpath(__DIR__));
+define('VIEWS_DIR', realpath(WEB_ROOT . '/../views'));
+define('CACHE_DIR', realpath(WEB_ROOT . '/../cache'));
+define('IMAGES_DIR',realpath(WEB_ROOT . '/images'));
+
 $app = new Silex\Application();
 $app['debug'] = true;
 
 $image_token = "tralalaprout";
 
-$images_dir = __DIR__.'/../images/';
-
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/../views',
+    'twig.path' => VIEWS_DIR,
+    'twig.options' => array(
+        'cache' => CACHE_DIR . '/twig',
+    ),
 ));
+$app->register(new SilexExtension\AsseticExtension(), array(
+    'assetic.path_to_web' => WEB_ROOT,
+    'assetic.options' => array(
+        'debug' => $app['debug'],
+    ),
+    'assetic.filters' => $app->protect(
+        function($fm) {
+            // Activate LESS Filter
+            $fm->set('less', new Assetic\Filter\LessphpFilter());
+            $fm->set('css_rewrite', new Assetic\Filter\CssRewriteFilter());
+        }
+    )
+));
+
 
 $params = array(
     'site_title' => '_photo Lab',
@@ -55,29 +75,8 @@ foreach($params['navigation'] as $nav ){
     }
 }
 
-$app->get('/less/bootstrap/{name}', function ($name) use ($app, $params) {
-
-    $less_file = __DIR__.'/../../vendor/twitter/bootstrap/less/' .$app->escape($name);
-    $css_file  = __DIR__.'/../cache/' . $app->escape($name) . '.css';
-    if (!file_exists($css_file)) {
-        $less = new lessc($less_file);
-        $less->setFormatter("compressed");
-        $css = $less->parse();
-        file_put_contents($css_file, $less->parse());
-    }
-
-    if (!file_exists($css_file)) {
-        return $app->abort(404, 'CSS file not found.');
-    }
-
-    $stream = function () use ($css_file) {
-        readfile($css_file);
-    };
-    return $app->stream($stream, 200, array('Content-Type' => 'text/css'));
-});
-
 $app->get('/albums', function () use ($app, $params) {
-    return $app['twig']->render('albums.twig', array(
+    return $app['twig']->render('albums.html.twig', array(
         'params'     => $params,
         'albums'     => $params['albums'],
     ));
@@ -88,7 +87,7 @@ $app->match('/albums/{name}', function ($name) use ($app, $params) {
 
         $params['title'] .= ' - ' . $params['albums'][$app->escape($name)]['caption'];
 
-        return $app['twig']->render('main.twig', array(
+        return $app['twig']->render('main.html.twig', array(
             'params'     => $params,
             'content'    => 'Album : '.$app->escape($name),
         ));
@@ -111,16 +110,19 @@ $app->get('/images/{file}', function ($file) use ($app, $params) {
 });
 
 $app->match('/blog/{name}', function ($name) use ($app, $params) {
-
-    return $app['twig']->render('hello.twig', array(
+    return $app['twig']->render('hello.html.twig', array(
         'content' => $name,
     ));
 });
+
 $app->get('/blog', function () use ($app) {
     return $app->redirect('/');
 });
+
+
+
 $app->get('/', function () use ($app, $params) {
-    return $app['twig']->render('main.twig', array(
+    return $app['twig']->render('main.html.twig', array(
         'params'     => $params,
         'content' => 'Hello',
     ));

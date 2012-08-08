@@ -18,7 +18,10 @@
         "symfony/twig-bridge": "2.1.*",
         "grom/silex-service-provider": "*",
         "leafo/lessphp": "*",
-        "twitter/bootstrap": "dev-master"
+        "twitter/bootstrap": "dev-master",
+        "fate/silex-extensions": "dev-master",
+        "kriswallsmith/assetic": "dev-master",
+        "symfony/finder": "dev-master"
     },
     "repositories" : [{
         "type" : "package",

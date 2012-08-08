@@ -1,6 +1,12 @@
 {
-    "hash": "60a34d21aa26725524da0c5965ac10fa",
+    "hash": "f79b224874150898a4cf2d42f5c71dae",
     "packages": [
+        {
+            "package": "fate/silex-extensions",
+            "version": "dev-master",
+            "source-reference": "c251bb3ccd581766cccfba895e20d52df39185c6",
+            "commit-date": "1343905243"
+        },
         {
             "package": "grom/silex-service-provider",
             "version": "dev-master",
@@ -18,6 +24,12 @@
             "version": "dev-master",
             "source-reference": "2b85a66539a58ce7fe639a5a417ce48d80ac1dd7",
             "commit-date": "1342770243"
+        },
+        {
+            "package": "kriswallsmith/assetic",
+            "version": "dev-master",
+            "source-reference": "ce9c557989f95abffe792c63f84f404a2f019ef8",
+            "commit-date": "1344261272"
         },
         {
             "package": "leafo/lessphp",
@@ -56,6 +68,18 @@
             "commit-date": "1342739894"
         },
         {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1343512949"
+        },
+        {
             "package": "symfony/http-foundation",
             "version": "dev-master",
             "alias-pretty-version": "2.1.x-dev",
@@ -78,6 +102,18 @@
             "version": "dev-master",
             "source-reference": "0d0ee371ab0425f3399dba9e25d7ad98ca5c0d62",
             "commit-date": "1344074675"
+        },
+        {
+            "package": "symfony/process",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/process",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-RC1",
+            "commit-date": "1343512949"
         },
         {
             "package": "symfony/routing",
@@ -128,6 +164,9 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "twitter/bootstrap": 20
+        "twitter/bootstrap": 20,
+        "fate/silex-extensions": 20,
+        "kriswallsmith/assetic": 20,
+        "symfony/finder": 20
     }
 }
