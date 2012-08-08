@@ -7,24 +7,40 @@
     "https://github.com/pilipLabs/photoLab",
     "license": "Apache 2.0",
     "minimum-stability": "dev",
-    "authors": [
-    {
+    "authors": [{
         "name": "pilip Labs",
         "email": "labs@pilip.net",
         "homepage": "http://labs.pilip.net/"
-    }
-    ],
-    "autoload":
-    {
-       "psr-0": {
-           "photo_lab":  "src"
-       }
-    },
+    }],
     "require": {
         "silex/silex": "*",
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/twig-bridge": "2.1.*",
         "grom/silex-service-provider": "*",
-        "leafo/lessphp": "*"
+        "leafo/lessphp": "*",
+        "twitter/bootstrap": "dev-master"
+    },
+    "repositories" : [{
+        "type" : "package",
+        "package" : {
+            "name" : "twitter/bootstrap",
+            "version" : "master",
+            "source" : {
+                "url": "https://github.com/twitter/bootstrap.git",
+                "type": "git",
+                "reference": "master"
+            },
+            "dist": {
+                "url": "https://github.com/twitter/bootstrap/zipball/master",
+                "type": "zip"
+            }
+        }
+    }],
+    "autoload":
+    {
+       "psr-0": {
+           "photo_lab":  "src"
+       }
     }
+
 }

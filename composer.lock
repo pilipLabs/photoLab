@@ -1,5 +1,5 @@
 {
-    "hash": "9147a40087650f4bb40999f84039f950",
+    "hash": "60a34d21aa26725524da0c5965ac10fa",
     "packages": [
         {
             "package": "grom/silex-service-provider",
@@ -22,8 +22,8 @@
         {
             "package": "leafo/lessphp",
             "version": "dev-master",
-            "source-reference": "v0.3.6",
-            "commit-date": "1344266507"
+            "source-reference": "d55eed7f1f5af90a2956dc300c8685a214a8fdc3",
+            "commit-date": "1344408644"
         },
         {
             "package": "pimple/pimple",
@@ -112,8 +112,14 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "51c866f415bbee670cd9ba13591307bce8dabdca",
-            "commit-date": "1343464333"
+            "source-reference": "f2f698c820d4396f519ef4175ad6fe79fcfb9ecf",
+            "commit-date": "1344328685"
+        },
+        {
+            "package": "twitter/bootstrap",
+            "version": "master",
+            "source-reference": "master",
+            "commit-date": "1339090286"
         }
     ],
     "packages-dev": null,
@@ -121,7 +127,7 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "twitter/bootstrap": 20
+    }
 }
