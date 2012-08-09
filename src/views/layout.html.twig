@@ -16,7 +16,7 @@
             'css/my.css'
             filter='less'
             combine=true
-            output='css/screen.css'
+            output='assets/screen.css'
         %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -67,8 +67,13 @@
             <span class="add-on"><i class="icon-envelope"></i></span><input class="span2" id="inputIcon" type="text">
         </div>
 
-        <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/my.js"></script>
+				{% javascripts 
+					'../../vendor/twitter/bootstrap/docs/assets/js/jquery.js'
+					'../../vendor/twitter/bootstrap/docs/assets/js/bootstrap.min.js'
+					'assets/my.js'
+					output="assets/scripts.js"
+				%}
+				<script type="text/javascript" src="{{ asset_url }}"></script>
+				{% endjavascripts %}
     </body>
 </html>

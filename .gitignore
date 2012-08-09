@@ -1,4 +1,5 @@
 error_log
 vendor
 src/cache/
-src/web/css/screen.css
+src/web/assets/screen.css
+src/web/assets/scripts.js
