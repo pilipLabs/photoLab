@@ -37,7 +37,7 @@ $app->register(new SilexExtension\AsseticExtension(), array(
 
 $params = array(
     'site_title' => '_photo Lab',
-    'title' => '',
+    'title' => '_photo Lab',
 
     'navigation' => array(
         array(

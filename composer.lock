@@ -4,8 +4,8 @@
         {
             "package": "fate/silex-extensions",
             "version": "dev-master",
-            "source-reference": "c251bb3ccd581766cccfba895e20d52df39185c6",
-            "commit-date": "1343905243"
+            "source-reference": "686eca24e1e09b05fd9b75447678bb0eca795d24",
+            "commit-date": "1344586528"
         },
         {
             "package": "grom/silex-service-provider",
@@ -28,14 +28,14 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "ce9c557989f95abffe792c63f84f404a2f019ef8",
-            "commit-date": "1344261272"
+            "source-reference": "d1d5066d9071a76d771993081ee23137e96216b7",
+            "commit-date": "1344507381"
         },
         {
             "package": "leafo/lessphp",
             "version": "dev-master",
-            "source-reference": "d55eed7f1f5af90a2956dc300c8685a214a8fdc3",
-            "commit-date": "1344408644"
+            "source-reference": "b6a3a317eca3618ddd160acf2be33ffd3fd20c05",
+            "commit-date": "1344527257"
         },
         {
             "package": "pimple/pimple",
@@ -52,8 +52,8 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "ee00393c33b3de861082602747a84d49897b9315",
-            "commit-date": "1344077943"
+            "source-reference": "6d7cf048c704c0c58276b01eccfacab4dd11d013",
+            "commit-date": "1344453846"
         },
         {
             "package": "symfony/event-dispatcher",
@@ -70,12 +70,6 @@
         {
             "package": "symfony/finder",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/finder",
-            "version": "dev-master",
             "source-reference": "v2.1.0-RC1",
             "commit-date": "1343512949"
         },
@@ -88,8 +82,8 @@
         {
             "package": "symfony/http-foundation",
             "version": "dev-master",
-            "source-reference": "v2.1.0-RC1",
-            "commit-date": "1344071918"
+            "source-reference": "9a509ac3bb52076f5a765a85e9552042b40ce287",
+            "commit-date": "1344594770"
         },
         {
             "package": "symfony/http-kernel",
