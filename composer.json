@@ -38,12 +38,5 @@
                 "type": "zip"
             }
         }
-    }],
-    "autoload":
-    {
-       "psr-0": {
-           "photo_lab":  "src"
-       }
-    }
-
+    }]
 }

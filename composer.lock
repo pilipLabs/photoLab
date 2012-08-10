@@ -28,6 +28,12 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
+            "alias-pretty-version": "1.1.x-dev",
+            "alias-version": "1.1.9999999.9999999-dev"
+        },
+        {
+            "package": "kriswallsmith/assetic",
+            "version": "dev-master",
             "source-reference": "d1d5066d9071a76d771993081ee23137e96216b7",
             "commit-date": "1344507381"
         },
