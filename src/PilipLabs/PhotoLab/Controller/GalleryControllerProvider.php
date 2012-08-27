@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipLabs\PhotoLab;
+namespace PilipLabs\PhotoLab\Controller;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
@@ -14,8 +14,10 @@ class GalleryControllerProvider implements ControllerProviderInterface
 
 
         $controllers->get('/', function () use ($app) {
+            $albums = $app['galleries']->findAll();
+
             return $app['twig']->render('gallery/list.html.twig', array(
-                'albums'     => "",
+                'albums'     => $albums,
             ));
         });
 

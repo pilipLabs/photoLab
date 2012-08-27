@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+	<div class="row-fluid">
+		<ul class="thumbnails">
+			{% for album in albums %}
+			<li class="span4">
+				<div class="thumbnail">
+					<img src="http://placehold.it/300x200" alt>
+					<div class="caption">
+						<h3>Gallery Name</h3>
+					</div>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

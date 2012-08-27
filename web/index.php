@@ -3,15 +3,14 @@
  * Constantes
  */
 define('WEB_ROOT',  realpath(__DIR__));
-define('APPS_ROOT', realpath(__DIR__  . '/../apps'));
-define('VIEWS_DIR', realpath(WEB_ROOT . '/../views'));
+define('APPS_ROOT', realpath(__DIR__  . '/../src'));
+define('VIEWS_DIR', realpath(WEB_ROOT . '/../src/PilipLabs/PhotoLab/Resources/views'));
 define('CACHE_DIR', realpath(WEB_ROOT . '/../cache'));
 define('IMAGES_DIR',realpath(WEB_ROOT . '/images'));
-define('VENDOR_DIR',realpath(WEB_ROOT . '/../../vendor'));
-
+define('VENDOR_DIR',realpath(WEB_ROOT . '/../vendor'));
 ini_set('xdebug.var_display_max_depth', 5);
 
-$loader = require __DIR__.'/../../vendor/autoload.php';
+$loader = require VENDOR_DIR . '/autoload.php';
 $loader->add('PilipLabs', APPS_ROOT);
 
 
@@ -42,8 +41,14 @@ $app->register(new SilexExtension\AsseticExtension(), array(
     )
 ));
 
-$app->mount('/blog',    new PilipLabs\PhotoLab\BlogControllerProvider());
-$app->mount('/gallery', new PilipLabs\PhotoLab\GalleryControllerProvider());
+$app->before(function() use ($app) {
+    $app['galleries'] = $app->share(function($app) {
+        return new PilipLabs\PhotoLab\Repository\GalleryRepository();
+    });
+});
+
+$app->mount('/blog',    new PilipLabs\PhotoLab\Controller\BlogControllerProvider());
+$app->mount('/gallery', new PilipLabs\PhotoLab\Controller\GalleryControllerProvider());
 
 $app->get('/', function () use ($app) {
     return $app->redirect('/blog');

@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipLabs\PhotoLab;
+namespace PilipLabs\PhotoLab\Controller;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;

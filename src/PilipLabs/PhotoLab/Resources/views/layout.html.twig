@@ -37,8 +37,8 @@
 
         {% block stylesheets %}
         {% stylesheets filter='less' combine=true output='/assets/screen.css'
-            '../../vendor/twitter/bootstrap/less/bootstrap.less'
-            '../../vendor/twitter/bootstrap/less/responsive.less'
+            '../vendor/twitter/bootstrap/less/bootstrap.less'
+            '../vendor/twitter/bootstrap/less/responsive.less'
             'css/my.css'
         %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
@@ -74,14 +74,10 @@
         {% block body %}
         {% endblock %}
 
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-envelope"></i></span><input class="span2" id="inputIcon" type="text">
-        </div>
-
         {% block javascripts %}
         {% javascripts output='/assets/scripts.js'
-            '../../vendor/twitter/bootstrap/docs/assets/js/jquery.js'
-            '../../vendor/twitter/bootstrap/docs/assets/js/bootstrap.min.js'
+            '../vendor/twitter/bootstrap/docs/assets/js/jquery.js'
+            '../vendor/twitter/bootstrap/docs/assets/js/bootstrap.min.js'
             'assets/my.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
