@@ -1,5 +1,6 @@
 error_log
 vendor
 cache
+data
 web/assets/screen.css
 web/assets/scripts.js

@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+    <h1>{{ gallery.filename }}</h1>
+    <ul class="thumbnails">
+    {% for picture in pictures %}
+        <li>
+            <div class="thumbnail">
+                <a href="/gallery/{{ gallery.filename }}/{{ picture.filename }}"><img src="http://placehold.it/300x200" alt></a>
+                <div class="caption">
+                    <h3>{{ picture.filename }}</h3>
+                    <small>{{ picture.pathname }}</small>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,7 +1,0 @@
-{% extends "layout.html.twig" %}
-
-{% block body %}
-    {% for item in albums %}
-        <a href="/albums/{{ item.href }}">{{ item.caption }}</a>
-    {% endfor %}
-{% endblock %}

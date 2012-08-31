@@ -1,18 +1,24 @@
 {% extends "layout.html.twig" %}
 
 {% block body %}
-	<div class="row-fluid">
-		<ul class="thumbnails">
-			{% for album in albums %}
-			<li class="span4">
-				<div class="thumbnail">
-					<img src="http://placehold.it/300x200" alt>
-					<div class="caption">
-						<h3>Gallery Name</h3>
-					</div>
+	<div class="container-fluid">
+		{% for gallery in galleries %}
+			{% if loop.index is not divisibleby(3) %}
+				<div class="row-fluid">
+					<ul class="thumbnails">
+			{% endif %}
+						<li class="span4">
+							<div class="thumbnail">
+								<a href="/gallery/{{ gallery.filename }}"><img src="http://placehold.it/300x200" alt></a>
+								<div class="caption">
+									<h3>{{ gallery.filename }}</h3>
+								</div>
+							</div>
+						</li>
+			{% if loop.index is not divisibleby(3) %}
+					</ul>
 				</div>
-			</li>
-			{% endfor %}
-		</ul>
+			{% endif %}
+		{% endfor %}
 	</div>
 {% endblock %}

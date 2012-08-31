@@ -14,23 +14,31 @@ class GalleryControllerProvider implements ControllerProviderInterface
 
 
         $controllers->get('/', function () use ($app) {
-            $albums = $app['galleries']->findAll();
+            $galleries = $app['galleries']->findAll();
 
             return $app['twig']->render('gallery/list.html.twig', array(
-                'albums'     => $albums,
+                'galleries'     => $galleries,
             ));
         });
 
         $controllers->match('/{galleryName}', function ($galleryName) use ($app) {
-            return $app->abort(404);
+            $gallery = $app['galleries']->findByName($galleryName);
+
+            if ($gallery) {
+                $pictures = $app['galleries']->findPicturesInGallery($galleryName);
+                return $app['twig']->render('gallery/gallery.html.twig', array(
+                    'gallery'     => $gallery,
+                    'pictures'    => $pictures,
+                ));
+            } else {
+                return $app->abort(404, "Gallery '{$galleryName}'' not found");
+            }
+
         });
 
         $controllers->get('/{galleryName}/{pictureName}', function ($galleryName, $pictureName) use ($app) {
             return $app->abort(404);
         });
-
-
-
 
         return $controllers;
 
