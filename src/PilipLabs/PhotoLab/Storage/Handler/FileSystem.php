@@ -10,11 +10,13 @@ class FileSystem implements ReadableInterface {
     private $handle;
     private $uri;
 
-    public function __construct($root)
+    public function __construct($root = false)
     {
-        self::$root = realpath($root);
-        if (!self::$root) {
-            throw new \RuntimeException(sprintf('Root path "%s" does not exists', self::$root));
+        if (!isset(self::$root)) {
+            self::$root = realpath($root);
+            if (!self::$root) {
+                throw new \RuntimeException(sprintf('Root path "%s" does not exists', self::$root));
+            }
         }
     }
 
@@ -47,30 +49,41 @@ class FileSystem implements ReadableInterface {
         return true;
     }
 
-    public function stream_eof() {
-        var_dump(__METHOD__);
+    public function stream_open($uri, $mode, $options, &$openedPath) {
+        $this->uri = $uri;
+        $path = $this->getLocalPath();
+        $this->handle = ($options & STREAM_REPORT_ERRORS) ? fopen($path, $mode) : @fopen($path, $mode);
+        if ((bool) $this->handle && $options & STREAM_USE_PATH) {
+            $openedPath = $path;
+        }
+        return (bool) $this->handle;
     }
-    public function stream_open($path, $mode, $options, &$openedPath) {
-        var_dump(__METHOD__);
-    }
+
     public function stream_read($count) {
-        var_dump(__METHOD__);
+        return fread($this->handle, $count);
     }
+
+    public function stream_eof() {
+         return feof($this->handle);
+    }
+
     public function stream_seek($offset, $whence = 0) {
-        var_dump(__METHOD__);
+        // fseek returns 0 on success and -1 on a failure.
+        // stream_seek   1 on success and  0 on a failure.
+        return !fseek($this->handle, $offset, $whence);
     }
+
     public function stream_tell() {
-        var_dump(__METHOD__);
+        return ftell($this->handle);
     }
     public function stream_cast($cast) {
         var_dump(__METHOD__);
     }
     public function stream_close() {
-        var_dump(__METHOD__);
+        return fclose($this->handle);
     }
 
     public function stream_stat() {
-        var_dump(__METHOD__);
         return fstat($this->uri);
     }
 

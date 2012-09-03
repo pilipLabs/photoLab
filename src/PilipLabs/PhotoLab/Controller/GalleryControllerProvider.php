@@ -6,6 +6,8 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Silex\ControllerCollection;
 
+use Symfony\Component\HttpFoundation\Response;
+
 class GalleryControllerProvider implements ControllerProviderInterface
 {
     public function connect(Application $app)
@@ -25,7 +27,7 @@ class GalleryControllerProvider implements ControllerProviderInterface
             $gallery = $app['galleries']->findByName($galleryName);
 
             if ($gallery) {
-                $pictures = $app['galleries']->findPicturesInGallery($galleryName);
+                $pictures = $gallery->getPictures();
                 return $app['twig']->render('gallery/gallery.html.twig', array(
                     'gallery'     => $gallery,
                     'pictures'    => $pictures,
@@ -37,7 +39,18 @@ class GalleryControllerProvider implements ControllerProviderInterface
         });
 
         $controllers->get('/{galleryName}/{pictureName}', function ($galleryName, $pictureName) use ($app) {
-            return $app->abort(404);
+            $picture = $app['galleries']->findByName($galleryName)->getPicture($pictureName);
+            if ($picture) {
+
+                return new Response(
+                    $picture->getContents(),
+                    200,
+                    array('Content-Type' => $picture->getContentType())
+                );
+
+            } else {
+                return $app->abort(404,  "Picture '{$pictureName}'' not found in gallery '{$galleryName}'.");
+            }
         });
 
         return $controllers;

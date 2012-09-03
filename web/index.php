@@ -54,4 +54,21 @@ $app->get('/', function () use ($app) {
     return $app->redirect('/blog');
 });
 
+if (!$app['debug']) {
+    $app->error(function($error) use ($app) {
+        switch ($error->getStatusCode()) {
+            default:
+                $view = 'errors/default.html.twig';
+                break;
+            case 404:
+                $view = 'errors/404.html.twig';
+                break;
+        }
+
+        return $app['twig']->render($view, array(
+            'error' => $error
+        ));
+    });
+}
+
 $app->run();
